@@ -66,7 +66,7 @@ EventMachine.run do
 
     kaeritai = case status.text
     when /帰りたい|@kaeritainess/
-      rand(10) > 3 ? /帰りたいにゃー?ん?！?/.generate : ""
+      rand(10) > 7 ? /帰りたいにゃー?ん?！?？?/.generate : ""
     when /kaeritainess/i
       Regexp.last_match(0)
     end
