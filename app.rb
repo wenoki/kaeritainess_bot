@@ -4,6 +4,7 @@ require "eventmachine"
 require "twitter"
 require "tweetstream"
 require "logger"
+require "randexp"
 
 twitter_consumer_key = ENV["CLIENT_CONSUMER_KEY"]
 twitter_consumer_secret = ENV["CLIENT_CONSUMER_SECRET"]
