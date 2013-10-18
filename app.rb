@@ -62,6 +62,7 @@ EventMachine.run do
   stream.userstream do |status|
     log.info "status from @#{status.from_user}: #{status.text}"
     next if status.from_user == "kaeritainess"
+    next if status.retweet?
 
     kaeritai = case status.text
     when /帰りたい|@kaeritainess/
