@@ -1,0 +1,1 @@
+CLIENT_CONSUMER_KEY=<your consumer key> CLIENT_CONSUMER_SECRET=<your consumer secret> CLIENT_ACCESS_TOKEN=<your access token> CLIENT_ACCESS_TOKEN_SECRET=<your access token secret> bundle exec ruby app.ruby
