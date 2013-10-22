@@ -65,10 +65,10 @@ EventMachine.run do
     next if status.retweet?
 
     kaeritai = case status.text
-    when /帰りた[いさみ]|kaeritainess/
-      /帰りたいにゃー?ん?？/.generate
     when /帰りたいにゃん|@kaeritainess/
       /にゃー?ん?！?？?/.generate
+    when /帰りた[いさみ]|kaeritai/
+      /帰りたいにゃー?ん?？/.generate
     end
 
     next unless kaeritai
