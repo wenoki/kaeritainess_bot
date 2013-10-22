@@ -65,14 +65,22 @@ EventMachine.run do
     next if status.retweet?
 
     kaeritai = case status.text
-    when /帰りたい|@kaeritainess/
-      rand(10) > 7 ? /帰りたいにゃー?ん?！?？?/.generate : ""
-    when /kaeritainess/i
-      Regexp.last_match(0)
+    when /帰りた[いさみ]|kaeritainess/
+      /帰りたいにゃー?ん?？/.generate
+    when /帰りたいにゃん|@kaeritainess/
+      /にゃー?ん?！?？?/.generate
+    end
+
+    next unless kaeritai
+
+    EM.add_timer(rand(4) ** 2) do
+      rest.favorite status.id
+      log.info "favorited: #{tweet.text}"
     end
 
     EM.add_timer(rand(10) ** 2) do
-      tweet = rest.update("@#{status.user.screen_name} #{kaeritai}", in_reply_to_status_id: status.id) unless kaeritai.empty?
+      next unless rand(5) == 1
+      tweet = rest.update("@#{status.user.screen_name} #{kaeritai}", in_reply_to_status_id: status.id)
       log.info "tweeted: #{tweet.text}" if tweet
     end
   end
