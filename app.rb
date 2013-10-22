@@ -67,7 +67,7 @@ EventMachine.run do
     kaeritai = case status.text
     when /帰りたいにゃん|@kaeritainess/
       /にゃー?ん?！?？?/.generate
-    when /帰りた[いさみ]|kaeritai/
+    when /帰りた[いさみ]|kaeritai/i
       /帰りたいにゃー?ん?？/.generate
     end
 
