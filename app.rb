@@ -78,9 +78,10 @@ EventMachine.run do
       log.info "favorited: #{tweet.text}"
 
       EM.add_timer(rand(10) ** 2) do
-        next unless rand(5) == 1
-        tweet = rest.update("@#{status.user.screen_name} #{kaeritai}", in_reply_to_status_id: status.id)
-        log.info "tweeted: #{tweet.text}" if tweet
+        if rand(5) == 1
+          tweet = rest.update("@#{status.user.screen_name} #{kaeritai}", in_reply_to_status_id: status.id)
+          log.info "tweeted: #{tweet.text}" if tweet
+        end
       end
     end
   end
